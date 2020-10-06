@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { makeStyles, Grid, Typography, Box } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 import Typing from 'react-typing-animation'
@@ -6,11 +6,13 @@ import ContactTray from './ContactTray'
 import Button from '@material-ui/core/Button'
 import BusinessCenterOutlinedIcon from '@material-ui/icons/BusinessCenterOutlined'
 import Zoom from '@material-ui/core/Zoom'
+import MainContext from '../Context/MainContext'
 
 export default function LandingPage() {
 	
 	const classes = useStyles()
 	const [typed, setTyped] = useState(false)
+	const context = useContext(MainContext)
 
 	return (
 		<>
@@ -32,6 +34,7 @@ export default function LandingPage() {
 						size="large"
 						className={classes.buttonSmall}
 						startIcon={<BusinessCenterOutlinedIcon />}
+						onClick={()=>{context.setIsResumeOpen(true)}}
 					>
 						Go To Interactive Resume
 					</Button>
@@ -46,13 +49,13 @@ export default function LandingPage() {
 						size="large"
 						className={classes.button}
 						startIcon={<BusinessCenterOutlinedIcon />}
+						onClick={()=>{context.setIsResumeOpen(true)}}
 					>
 						Go To Interactive Resume
 					</Button>
 				</Zoom>
 			</Box>
 			<ContactTray />
-
 		</>)
 }
 

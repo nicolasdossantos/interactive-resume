@@ -1,12 +1,15 @@
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
-import React from 'react'
+import React, {useReducer} from 'react'
 import './App.css'
 import LandingPage from './components/LandingPage'
+import MainContext from './Context/MainContext';
+import MainReducer from './Context/MainReducer';
 
 
 
 function App() {
   const theme = createMuiTheme()
+  const [state, dispatch] = useReducer(MainReducer, {isResumeOpen: false})
 
   theme.typography.h3 = {
     fontSize: '1.6rem',
@@ -18,14 +21,25 @@ function App() {
     }
   }
 
- 
+  const setIsResumeOpen = (isResumeOpen) => {
+    dispatch({
+      type: 'SET_IS_RESUME_OPEN',
+      payload: isResumeOpen
+    })
+  }
 
   return (
+    <MainContext.Provider
+      value={{
+        isResumeOpen: state.isResumeOpen,
+        setIsResumeOpen
+      }}>
     <ThemeProvider theme={theme}>
       <div className="App">
         <LandingPage/>
       </div>
     </ThemeProvider>
+    </MainContext.Provider>
   );
 }
 
