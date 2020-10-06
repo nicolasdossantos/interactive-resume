@@ -36,7 +36,8 @@ function App() {
       }}>
     <ThemeProvider theme={theme}>
       <div className="App">
-        <LandingPage/>
+        {!state.isResumeOpen && <LandingPage/>}
+        {state.isResumeOpen && <h1>test</h1>}
       </div>
     </ThemeProvider>
     </MainContext.Provider>
