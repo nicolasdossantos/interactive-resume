@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { makeStyles, Grid, Typography, Box } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 import Typing from 'react-typing-animation'
@@ -10,6 +10,7 @@ import Zoom from '@material-ui/core/Zoom'
 export default function LandingPage() {
 	
 	const classes = useStyles()
+	const [typed, setTyped] = useState(false)
 
 	return (
 		<>
@@ -20,11 +21,11 @@ export default function LandingPage() {
 				</Grid>
 				<Grid item xs={3} md={5}></Grid>
 			</Grid>
-			<Typing speed={50} className={classes.text}>
+			<Typing speed={45} className={classes.text} onFinishedTyping={()=>setTyped(true)}>
 				<Typography variant="h3">Hello, my name is<br /><span className={classes.name}>Nick dos Santos</span><br />Fullstack Software Engineer</Typography>
 			</Typing>
 			<Box display={{ xs: 'block', sm: 'none' }} >
-				<Zoom in={true} style={{ transitionDelay: '5300ms' }}>
+				<Zoom in={typed}>
 					<Button
 						variant="contained"
 						color=""
@@ -37,7 +38,7 @@ export default function LandingPage() {
 				</Zoom>
 			</Box>
 			<Box display={{ xs: 'none', sm: 'block' }} >
-				<Zoom in={true} style={{ transitionDelay: '5300ms' }}>
+				<Zoom in={typed} >
 				
 					<Button
 						variant="contained"
