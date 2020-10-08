@@ -4,6 +4,8 @@ import './App.css'
 import LandingPage from './components/LandingPage'
 import MainContext from './Context/MainContext';
 import MainReducer from './Context/MainReducer';
+import Education from './components/Education'
+import NavBar from './components/shared/NavBar';
 
 
 
@@ -36,8 +38,12 @@ function App() {
       }}>
     <ThemeProvider theme={theme}>
       <div className="App">
-        {!state.isResumeOpen && <LandingPage/>}
-        {state.isResumeOpen && <h1>test</h1>}
+
+
+        {!state.isResumeOpen && <div className="LandingPage"><LandingPage /></div>}
+        {state.isResumeOpen && <NavBar />}
+
+        {/* {state.isResumeOpen && <Education />} */}
       </div>
     </ThemeProvider>
     </MainContext.Provider>

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Grid, Box } from '@material-ui/core'
-import { EmailIcon, LinkedinIcon } from "react-share"
+import {  LinkedinIcon } from "react-share"
 import GithubIcon from './shared/GithubIcon'
+import EmailIcon from './shared/EmailIcon'
 
 export default function ContactTray() {
   return (<>

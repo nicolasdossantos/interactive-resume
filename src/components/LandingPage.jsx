@@ -5,8 +5,9 @@ import Typing from 'react-typing-animation'
 import ContactTray from './ContactTray'
 import Button from '@material-ui/core/Button'
 import BusinessCenterOutlinedIcon from '@material-ui/icons/BusinessCenterOutlined'
-import Zoom from '@material-ui/core/Zoom'
+import Grow from '@material-ui/core/Grow'
 import MainContext from '../Context/MainContext'
+import GetAppIcon from '@material-ui/icons/GetApp';
 
 export default function LandingPage() {
 	
@@ -27,7 +28,8 @@ export default function LandingPage() {
 				<Typography variant="h3">Hello, my name is<br /><span className={classes.name}>Nick dos Santos</span><br />Fullstack Software Engineer</Typography>
 			</Typing>
 			<Box display={{ xs: 'block', sm: 'none' }} >
-				<Zoom in={typed}>
+				<Grow in={typed} style={{ timeout: 1000 }}>
+				<div>
 					<Button
 						variant="contained"
 						color=""
@@ -38,11 +40,23 @@ export default function LandingPage() {
 					>
 						Go To Interactive Resume
 					</Button>
-				</Zoom>
+					<Button
+						variant="contained"
+						color=""
+						size="large"
+						className={classes.buttonSmall}
+						startIcon={<GetAppIcon />}
+						onClick={()=>{context.setIsResumeOpen(true)}}
+						style={{width: '300px'}}
+					>
+						Download PDF Version
+					</Button>
+				</div>
+				</Grow>
 			</Box>
-			<Box display={{ xs: 'none', sm: 'block' }} >
-				<Zoom in={typed} >
-				
+			<Box display={{ xs: 'none', sm: 'block' }}  >
+				<Grow in={typed} style={{timeout: 1000}} >
+					<div>
 					<Button
 						variant="contained"
 						color=""
@@ -50,11 +64,25 @@ export default function LandingPage() {
 						className={classes.button}
 						startIcon={<BusinessCenterOutlinedIcon />}
 						onClick={()=>{context.setIsResumeOpen(true)}}
+						style={{marginRight: '8px'}}
 					>
 						Go To Interactive Resume
 					</Button>
-				</Zoom>
+					<Button
+						variant="contained"
+						color=""
+						size="large"
+						className={classes.button}
+						startIcon={<GetAppIcon />}
+						onClick={()=>{context.setIsResumeOpen(true)}}
+						style={{marginLeft: '8px', width: '300px'}}
+					>
+						Download PDF Version
+					</Button>
+					</div>
+				</Grow>
 			</Box>
+			
 			<ContactTray />
 		</>)
 }
@@ -73,18 +101,20 @@ const useStyles = makeStyles((theme) => ({
 	},
 	button: {
 		marginTop: theme.spacing(2),
-		backgroundColor: '#00bfa5',
+		backgroundColor: '#3C4348',
+		color: 'white',
 		height: '70px',
 		'&:hover': {
-			backgroundColor:'#64ffda'
+			backgroundColor:'#757575'
 		}
 	},
 	buttonSmall: {
 		marginTop: theme.spacing(2),
-		backgroundColor: '#00bfa5',
+		backgroundColor: '#3C4348',
+		color: 'white',
 		height: '48px',
 		'&:hover': {
 			backgroundColor:'#64ffda'
-		}
+		},
 	}
 }))
