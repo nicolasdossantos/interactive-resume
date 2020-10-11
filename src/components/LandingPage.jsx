@@ -20,11 +20,11 @@ export default function LandingPage() {
 			<Grid container>
 				<Grid item xs={3} md={5}></Grid>
 				<Grid item xs={6} md={2}>
-					<Avatar alt="Nick's profile pic" className={classes.profile} src="profile.jpg" />
+					<Avatar alt="Nick's profile pic" className={classes.profile} src={'profile.jpg'}/>
 				</Grid>
 				<Grid item xs={3} md={5}></Grid>
 			</Grid>
-			<Typing speed={45} className={classes.text} onFinishedTyping={()=>setTyped(true)}>
+			<Typing speed={60} className={classes.text} onFinishedTyping={()=>setTyped(true)}>
 				<Typography variant="h3">Hello, my name is<br /><span className={classes.name}>Nick dos Santos</span><br />Fullstack Software Engineer</Typography>
 			</Typing>
 			<Box display={{ xs: 'block', sm: 'none' }} >
