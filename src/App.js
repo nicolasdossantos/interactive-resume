@@ -41,7 +41,7 @@ function App() {
 
 
         {!state.isResumeOpen && <div className="LandingPage"><LandingPage /></div>}
-        {state.isResumeOpen && <div className="LandingPage"><Typography variant="h2">Coming Soon</Typography></div>}
+        {state.isResumeOpen && <Typography variant="h2">Coming Soon</Typography>}
 
         {/* {state.isResumeOpen && <Education />} */}
       </div>
