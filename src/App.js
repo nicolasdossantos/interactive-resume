@@ -1,4 +1,4 @@
-import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+import { createMuiTheme, ThemeProvider, Typography } from '@material-ui/core';
 import React, {useReducer} from 'react'
 import './App.css'
 import LandingPage from './components/LandingPage'
@@ -41,7 +41,7 @@ function App() {
 
 
         {!state.isResumeOpen && <div className="LandingPage"><LandingPage /></div>}
-        {state.isResumeOpen && <NavBar />}
+        {state.isResumeOpen && <Typography variant="h1">Coming Soon</Typography>}
 
         {/* {state.isResumeOpen && <Education />} */}
       </div>
